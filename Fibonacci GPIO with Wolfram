@@ -1,0 +1,15 @@
+(*Perform an action at a GPIO pin through mathematica, assign any function to the action*)
+
+sudo wolfram
+(*Assign the necessary GPIO pin*)
+pins={23};
+(*Create a table of the first 10 Fibonacci numbers*)
+timer=Table[Fibonacci[n], {n, 10}];
+
+(*Turn "pins" on and off based on the function in timer, 1 second hold at each*)
+Do[ 
+ DeviceWrite[ "GPIO", First[pins]->1 ]; 
+ Pause[1]; 
+ DeviceWrite[ "GPIO", First[pins]->0 ];
+ Pause[timer[[i]]]; 
+ ,{i,10}] 
