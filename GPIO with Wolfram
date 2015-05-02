@@ -6,7 +6,7 @@ pins={23};
 (*Create a table of the first 10 Fibonacci numbers*)
 timer=Table[Fibonacci[n], {n, 10}];
 
-(*Turn "pins" on and off based on the function in timer, 1 second hold at each*)
+(*Turn "pins" on and off based on the Fibonacci function in timer, 1 second hold at each*)
 Do[ 
  DeviceWrite[ "GPIO", First[pins]->1 ]; 
  Pause[1]; 
